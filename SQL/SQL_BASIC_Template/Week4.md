@@ -8,7 +8,7 @@
 
 ## SQL_BASIC_4th
 
-### 섹션 4. 데이터 탐색 - 변환
+### 섹션 5. 데이터 탐색 - 변환
 
 ### 4-4. 날짜 및 시간 데이터 이해하기(2) (EXTRACT, DATETIME_TRUNC, PARSE_DATETIME, FROMAT_DATETIME)
 
