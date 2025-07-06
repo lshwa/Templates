@@ -1,6 +1,8 @@
 # SQL_ADVANCED 1주차 정규 과제 
 
-📌**SQL_ADVANCED 정규과제**는 매주 정해진 주제에 따라 **MySQL 공식 문서 또는 한글 블로그 자료를 참고해 개념을 정리한 후, 프로그래머스 SQL 문제 3문제**와 **추가 확인문제**를 직접 풀어보며 학습하는 과제입니다. 
+## 집합 연산자 & 그룹 함수
+
+📌**SQL_ADVANCED 정규과제**는 매주 정해진 주제에 따라 **MySQL 공식 문서 또는 한글 블로그 자료를 참고해 개념을 정리한 후, 프로그래머스 SQL 3문제**와 **추가 확인문제**를 직접 풀어보며 학습하는 과제입니다. 
 
 이번 주는 아래의 **SQL_ADVANCED_1st_TIL**에 나열된 주제를 중심으로 개념을 학습하고, 주차별 **학습 목표**에 맞게 정리해주세요. 정리한 내용은 GitHub에 업로드한 후, **스프레드시트의 'SQL' 시트에 링크를 제출**해주세요. 
 
@@ -12,11 +14,15 @@
 
 ## SQL_ADVANCED_1st
 
-### 14.20.2. Window Function Concepts and Syntax
+**1. 집합 연산자**
 
-### 14.20.1. Window Function Description
+### 15.2.18. UNION Clause
 
-### 14.20.4. Named Window(Optional)
+### 15.2.14. Set Operations with UNION, INTERSECT
+
+- UNION, UNION ALL 중심으로 개념을 정리하고, INTERSECT, EXCEPT는 구문이 어떤 기능을 하는지 간단히만 알아봅니다. EXCEPT와 INTERSECT는 대부분 MySQL 버전에서 공식 지원되지 않기 때문에, **이번주 학습은 `UNION, UNION ALL` 만 집중적으로 정리해주세요.**
+
+**2. 그룹 함수 (집계 함수)**
 
 ### 14.19.1. Aggregate Function Descriptions
 
@@ -34,67 +40,46 @@
 
 > 아래의 링크를 통해 *MySQL 공식문서*로 이동하실 수 있습니다.
 >
-> - 14.20.2. Window Function Concepts and Syntax : MySQL 공식문서 
+> - 15.2.18. UNION Clause : MySQL 공식문서 
 >
-> https://dev.mysql.com/doc/refman/8.0/en/window-functions-usage.html
->
-> (한국어 버전)
->
-> - 14.20.1. Window Function Descriptions : MySQL 공식문서
->
-> https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html
+> https://dev.mysql.com/doc/refman/8.0/en/union.html
 >
 > (한국어 버전)
 >
-> - 14.20.4. Named Windows - (Optional) : MySQL 공식문서
+> - 15.2.14. Set Operations with UNION, INTERSECT : MySQL 공식문서
 >
-> https://dev.mysql.com/doc/refman/8.0/en/window-functions-named-windows.html
+> https://dev.mysql.com/doc/refman/8.0/en/set-operations.html
 >
 > (한국어 버전)
 >
-> - 14.19.1. Aggregate Function Descriptions : MySQL 공식문서 
+> - 14.19.1. Aggregate Function Descriptions : MySQL 공식문서
 >
 > https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html
 >
 > (한국어 버전)
-
-
+>
 
 
 
 ## 🏁 강의 수강 (Study Schedule)
 
-| 주차  | 공부 범위        | 완료 여부 |
-| ----- | ---------------- | --------- |
-| 0주차 | SubQuery & CTE   | ✅         |
-| 1주차 | Window Functions | ✅         |
-| 2주차 |                  | 🍽️         |
-| 3주차 |                  | 🍽️         |
-| 4주차 |                  | 🍽️         |
-| 5주차 |                  | 🍽️         |
-| 6주차 |                  | 🍽️         |
-
-<br>
+| 주차  | 공부 범위               | 완료 여부 |
+| ----- | ----------------------- | --------- |
+| 0주차 | 서브쿼리 & CTE          | ✅         |
+| 1주차 | 집합 연산자 & 그룹 함수 | ✅         |
+| 2주차 | 윈도우 함수             | 🍽️         |
+| 3주차 | Top N 쿼리              | 🍽️         |
+| 4주차 | 계층형 질의와 셀프 조인 | 🍽️         |
+| 5주차 | PIVOT / UNPIVOT         | 🍽️         |
+| 6주차 | 정규 표현식             | 🍽️         |
 
 
 
-## LeetCode 문제 
-
-https://leetcode.com/problems/department-top-three-salaries/
-
-> Department Top Three Salaries (LeetCode) : DENSE_RANK(), PARTITION BY
-
-https://leetcode.com/problems/consecutive-numbers/
-
-> Consecutive Numbers (LeetCode) : LAG
-
-https://leetcode.com/problems/last-person-to-fit-in-the-bus/
-
-> Last Person to Fit in the Bus (LeetCode) : SUM() OVER 
 
 
+## 문제
 
-문제를 푸는 다양한 방법이 존재하지만, **윈도우 함수를 사용하여 해결하는 방식에 대해 고민해주시길 바랍니다.** 
+
 
 
 
@@ -102,41 +87,30 @@ https://leetcode.com/problems/last-person-to-fit-in-the-bus/
 
 ---
 
- # 1. Window Function Concepts and Syntax
+ # 1. 집합 연산자
 
 ~~~
 ✅ 학습 목표 :
-* 윈도우 함수와 일반 집계 함수의 차이에 대해 설명할 수 있다.
-* 윈도우 함수의 기본 개념과, OVER(), PARTITION BY, ORDER BY, ROWS BETWEEN 등 문법을 사용할 수 있다. 
+* UNION과 UNION ALL의 차이와 사용법을 이해한다.
+* 중복 제거 여부, 컬럼 정렬 조건 등을 고려하여 올바르게 집합 연산자를 사용할 수 있다. 
 ~~~
 
 <!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
 
 
 
-# 2. Window Function Description
+# 2. 그룹함수
 
 ~~~
 ✅ 학습 목표 :
-* MySQL에 지원하는 윈도우 함수들에 대해 이해하고 설명할 수 있다. 
-* 순위함수, 이동함수, 누적 집계 함수, 통계 함수에 대해 설명할 수 있다.
+* COUNT, SUM, AVG, MAX, MIN 함수의 기본 사용법을 익힌다.
+* GROUP BY와 HAVING 절을 적절히 활용할 수 있다.
+* NULL과 집계 함수가 어떻게 상호작용하는지 이해한다. 
 ~~~
 
 <!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
 
 
-
-<!-- 14.20.4. Named Windows 는 Option 입니다. 그래도 읽고 정리해주신다면 그대는 정말 .. 인정-->
-
-# 3. Aggregate Function Descriptions
-
-~~~
-✅ 학습 목표 :
-* 일반집계 함수 목록을 윈도우 함수처럼 사용할 수 있다. 
-* 집계함수와 윈도우 함수의 차이를 확실히 이해하고 설명할 수 있다. 
-~~~
-
-<!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
 
 
 
@@ -150,15 +124,17 @@ https://leetcode.com/problems/last-person-to-fit-in-the-bus/
 
 ## 문제 1
 
-> **🧚예린이는 고객별로 얼마나 많은 주문을 하는지 분석하기 위해, 고객의 주문 목록에 주문 순서를 표시하는 쿼리를 작성해보았습니다. 이때 주문일 순서대로 각 고객의 주문 번호를 매기기 위해 윈도우 함수를 활용했습니다.**
+> **🧚동혁이는 SQL 문제를 풀면서 `UNION과 UNION ALL`의 차이를 명확히 이해하지 못해 중복된 값이 생기거나 누락되는 문제를 계속 겪고 있습니다.** 아래는 동혁이가 작성한 쿼리입니다.
 
 ~~~sql
-SELECT customer_id, order_id, order_date,
-       ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date) AS order_rank
-FROM Orders;
+SELECT name FROM member
+UNION
+SELECT name FROM blackList;
 ~~~
 
-> **이번에는 예린이에게 "윈도우 함수를 쓰지 않고 동일한 결과를 만들어보라"는 미션을 받았습니다. 예린이는 이 작업을 어떻게 해야할지 막막합니다. 예린이를 도와 ROW_NUMBER() 윈도우 함수 없이 동일한 결과를 서브쿼리나 JOIN을 사용해서 작성해보세요.**
+> **그런데 예상과 달리 blacklist에만 있는 이름이 결과에 안 나오거나, 중복된 이름이 사라져서 헷갈리고 있습니다. UNION과 UNION ALL의 차이를 설명하고, 중복 포함 여부에 따라 어떤 경우에 어떤 쿼리를 써야 하는지 예시와 함께 설명해주세요**
+
+<br>
 
 ~~~
 여기에 답을 작성해주세요!
