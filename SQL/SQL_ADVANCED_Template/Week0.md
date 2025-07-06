@@ -88,7 +88,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/131115
 
 ---
 
- # 1. SubQueries
+ # 1. 서브쿼리
 
 ~~~
 ✅ 학습 목표 :
