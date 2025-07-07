@@ -75,15 +75,21 @@
 
 https://leetcode.com/problems/department-top-three-salaries/
 
-> Department Top Three Salaries (LeetCode) : DENSE_RANK(), PARTITION BY
+> LeetCode 185. Department Top Three Salaries 
+>
+> 학습 포인트 : DENSE_RANK( ) + PARTITION BY 사용으로 그룹 내 상위 N개 추출
 
 https://leetcode.com/problems/consecutive-numbers/
 
-> Consecutive Numbers (LeetCode) : LAG
+> LeetCode 180. Consecutive Numbers 
+>
+> 학습 포인트 : LAG( ) 함수로 이전 값과 비교하여 연속 데이터 탐지 
 
 https://leetcode.com/problems/last-person-to-fit-in-the-bus/
 
-> Last Person to Fit in the Bus (LeetCode) : SUM() OVER 
+> LeetCode 2481. Last Person to Fit in the Bus 
+>
+> 학습 포인트 : SUM( ) OVER (ORDER BY ...) 로 누적 합계 계산 후 조건 필터링 
 
 
 
