@@ -10,15 +10,32 @@
 
 > 프로그래머스 문제를 풀고 ‘정답입니다’ 문구를 캡쳐해서 올려주시면 됩니다.
 
-
+**(마지막 주차입니다. 조금만 더 힘내주세요~!!!)**
 
 ## **SQL_ADVANCED_6th_TIL**
 
-| 주제** | **문서명**                                                   | **설명**                                                     | **링크** |
-| ------ | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
-| REGEXP | [12.8.2 Regular Expressions](https://dev.mysql.com/doc/refman/8.0/en/regexp.html) | REGEXP, REGEXP_LIKE, REGEXP_INSTR, REGEXP_REPLACE, REGEXP_SUBSTR 등 다양한 정규표현식 함수 제공 |          |
+### 14.8.2 Regular Expressions
 
-- 기본적인 패턴 매칭 문법 (^, $, [], .*, +, {m,n} 등)에 익숙해지는 것이 중요하며, WHERE 절, 조건 분기, 데이터 전처리 등에 유용하게 쓰입니다.
+- **REGEXP/RLIKE 연산자와 REGEXP_LIKE(), REGEXP_REPLACE() 등 함수 사용법 및 정규표현식 패턴 문법을 학습하세요.**
+
+
+
+### 공식 문서 활용 팁
+
+>  **MySQL 공식 문서는 영어로 제공되지만, 크롬 브라우저에서 공식 문서를 열고 이 페이지 번역하기에서 한국어를 선택하면 번역된 버전으로 확인할 수 있습니다. 다만, 번역본은 문맥이 어색한 부분이 종종 있으니 영어 원문과 한국어 번역본을 왔다 갔다 하며 확인하거나, 교육팀장의 정리 예시를 참고하셔도 괜찮습니다.**
+
+
+
+
+
+> 아래의 링크를 통해 *MySQL 공식문서*로 이동하실 수 있습니다.
+>
+> - 14.8.2 Regular Expressions : MySQL 공식문서 
+>
+> https://dev.mysql.com/doc/refman/8.0/en/regexp.html
+>
+> (한국어 버전)
+>
 
 
 
@@ -38,9 +55,19 @@
 
 ## 문제
 
-- [성분으로 구분한 아이스크림 총 주문량](https://school.programmers.co.kr/learn/courses/30/lessons/133027) — REGEXP 활용 (성분 필터링)
-- [식품분류별 가장 비싼 식품의 정보 조회하기](https://school.programmers.co.kr/learn/courses/30/lessons/131116) — WHERE name REGEXP 활용 가능
-- [우유와 요거트가 담긴 장바구니](https://school.programmers.co.kr/learn/courses/30/lessons/131124) — REGEXP로 품목 필터링 가능
+- https://leetcode.com/problems/find-users-with-valid-e-mails/description/
+
+> LeetCode 1517. Find Users With Valid E-mails
+>
+> 학습 포인트 : REGEXP를 활용한 이메일 유효성 검사 
+
+- https://leetcode.com/problems/employees-with-missing-information/description/
+
+> LeetCode 1965. Employees With Missing Information
+>
+> 학습 포인트 : REGEXP를 이용해 NULL 이 아닌 빈 문자열, 공백 등 이상값을 감지하기
+
+**물론 REGEXP 없이 풀 수 있는 문제입니다. 하지만, 정규 표현식을 학습 한 만큼, 최대한 정규 표현식을 활용해서 문제를 풀어주세요**
 
 
 
@@ -59,13 +86,15 @@
 
 
 
+
+
 ---
 
 ## 확인문제
 
 ### **문제 1**
 
-> **🧚택이는 고객의 이메일을 필터링하는 작업을 하고 있습니다. 모든 고객 중 이메일 도메인이 @gmail.com 또는 @naver.com인 고객만 추출하고자 합니다. REGEXP를 활용하여 쿼리를 작성해보세요.**
+> **🧚권택이는 고객의 이메일을 필터링하는 작업을 하고 있습니다. 모든 고객 중 이메일 도메인이 @gmail.com 또는 @naver.com인 고객만 추출하고자 합니다. REGEXP를 활용하여 쿼리를 작성해보세요.**
 
 ```
 SELECT *
@@ -73,13 +102,52 @@ FROM customers
 WHERE email REGEXP '(@gmail\\.com|@naver\\.com)$';
 ```
 
-
-
 1. > 위 쿼리가 어떤 의미인지 설명하고, LIKE로 동일한 결과를 내는 방법도 함께 제시해보세요.
 
 2. > email이 빈 문자열이거나 NULL인 경우는 어떻게 처리해야 할지 고민해보세요.
 
 
+
+> **🧚운영팀장인 지민이는 학회원 데이터에서 핸드폰 번호 형식을 점검하는 업무를 맡았습니다. 핸드폰 번호는 반드시 010으로 시작하고, 중간과 끝은 각각 4자리 숫자로 구성되어야 하며, 각 구간은 하이픈(-)으로 구분되어야 합니다. 예: 010-1234-5678 **
+>
+> **올바른 형식을 따르지 않는 번호를 가진 고객 목록을 찾아내기 위해 SQL의 REGEXP 기능을 사용하려고 합니다. 아래 조건에 맞는 고객 목록을 출력하는 쿼리를 작성해주세요.**
+
+- 예시 테이블
+
+| **student_id** | **name** | **phone_number** |
+| -------------- | -------- | ---------------- |
+| 1              | Anna     | 010-1234-5678    |
+| 2              | Brian    | 011-1234-5678    |
+| 3              | Cindy    | 01012345678      |
+| 4              | David    | 010-123-5678     |
+| 5              | Elsa     | 010-9999-8888    |
+
+- 기대 출력 결과
+
+| **student_id** | **name** | **phone_number** |
+| -------------- | -------- | ---------------- |
+| 2              | Brian    | 011-1234-5678    |
+| 3              | Cindy    | 01012345678      |
+| 4              | David    | 010-123-5678     |
+
+> 문제 조건 
+>
+> - 형식이 **정확히** 010-XXXX-XXXX (X는 숫자, 총 4자리)인 경우만 통과
+> - **정규 표현식을 사용하여 필터링**
+> - 올바르지 않은 형식만 조회
+> - 테이블 명은 Student로 해주세요.
+
+
+
+~~~
+여기에 쿼리를 작성해주세요.
+~~~
+
+
+
+
+
+<!-- 한 학기동안 SQL_ADVANCED 과제를 수행하느라 고생 많으셨습니다. 많이 부족했던 과제일 수 있지만, 과제를 하면서 SQL 지식이 성장했었다면 좋겠습니다. -->
 
 ### **🎉 수고하셨습니다.**
 
