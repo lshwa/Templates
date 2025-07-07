@@ -55,8 +55,6 @@
 
 ## 🏁 강의 수강 (Study Schedule)
 
-## 🏁 강의 수강 (Study Schedule)
-
 | 주차  | 공부 범위               | 완료 여부 |
 | ----- | ----------------------- | --------- |
 | 0주차 | 서브쿼리 & CTE          | ✅         |
@@ -73,7 +71,31 @@
 
 ## 문제 
 
+- https://leetcode.com/problems/employees-earning-more-than-their-managers/ 
 
+> LeetCode 181. Employees  Earning More Than Their Managers
+>
+> 학습 포인트 : 동일 테이블을 두 번 조인 (왜 동일 테이블을 JOIN 해야하는 문제일까)
+
+- https://leetcode.com/problems/tree-node/description/
+
+> LeetCode 608. Tree Node 
+>
+> 학습 포인트 : id, parent_id 기반의 트리 구조에서 **부모 ~ 자식 관계 재귀 탐색**
+>
+> Hint : (문제 해석) 
+>
+> - 어떤 노드가 Root Node 이려면, 부모노드가 존재하지 않아야 한다. 
+> - 어떤 노드가 Inner Node 이려면, 나를 부모로 가지는 노드가 하나 이상 존재하여야 한다.
+>   - 그 외네는 모두 Leaf Node 이다. --> (CASE 문을 사용하는 것을 추천드립니다.)
+
+- https://school.programmers.co.kr/learn/courses/30/lessons/144856
+
+> 프로그래머스 : 저자 별 카테고리 별 매출액 집계하기 
+>
+> 학습 포인트 : 카테고리와 서브카테고리 계층 구조를 분석하는 로직, SELF JOIN / CTE를 다 활용할 수 있다.
+>
+> - 위에 2가지의 문제를 풀어보고 난 이후, 더 편리한 방법으로 문제를 풀어보세요.
 
 
 
@@ -115,18 +137,20 @@
 
 ## 문제 1
 
-> **🧚예린이는 고객별로 얼마나 많은 주문을 하는지 분석하기 위해, 고객의 주문 목록에 주문 순서를 표시하는 쿼리를 작성해보았습니다. 이때 주문일 순서대로 각 고객의 주문 번호를 매기기 위해 윈도우 함수를 활용했습니다.**
+> **🧚승화는 어떤 기업의 조직 구조를 분석하는 SQL 쿼리를 작성하고 있습니다. 각 직원은 상위 관리자 ID(manager_id)를 가지며, 조직도는 같은 Employees 테이블 내에서 계층적으로 연결됩니다. 승화는 최상위 관리자부터 각 사원까지의 계층 깊이(depth)를 계산하고자 다음과 같은 SELF JOIN 기반 쿼리를 시도했습니다.** 
 
 ~~~sql
-SELECT customer_id, order_id, order_date,
-       ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date) AS order_rank
-FROM Orders;
+SELECT e1.id, e1.name, e2.name AS manager_name
+FROM Employees e1
+LEFT JOIN Employees e2 ON e1.manager_id = e2.id;
 ~~~
 
-> **이번에는 예린이에게 "윈도우 함수를 쓰지 않고 동일한 결과를 만들어보라"는 미션을 받았습니다. 예린이는 이 작업을 어떻게 해야할지 막막합니다. 예린이를 도와 ROW_NUMBER() 윈도우 함수 없이 동일한 결과를 서브쿼리나 JOIN을 사용해서 작성해보세요.**
+> **쿼리를 잘 작성했다고 생각을 했지만, 막상 실행을 해보니 1단계 매니저까지만 추적할 수 있어 계층 구조의 전체를  표현하는데 한계가 존재했습니다. 이에 여러분에게 다음과 같은 미션을 요청합니다. WITH RECURSIVE를 활용하여  최상위 관리자부터 시작해 각 직원까지의 조직 구조 계층 깊이(depth)를 구하고, 결과를 depth가 높은 순으로 정렬하세요.**
+
+
 
 ~~~
-여기에 답을 작성해주세요!
+여기에 답을 작성해주세요.
 ~~~
 
 
