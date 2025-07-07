@@ -2,7 +2,7 @@
 
 ## Week 3 : TOP-N 쿼리
 
-📌**SQL_ADVANCED 정규과제**는 매주 정해진 주제에 따라 **MySQL 공식 문서 또는 한글 블로그 자료를 참고해 개념을 정리한 후, 프로그래머스 SQL 문제 3문제**와 **추가 확인문제**를 직접 풀어보며 학습하는 과제입니다. 
+📌**SQL_ADVANCED 정규과제**는 매주 정해진 주제에 따라 **MySQL 공식 문서 또는 한글 블로그 자료를 참고해 개념을 정리한 후, 프로그래머스, SolveSql, LeetCode 중에서 SQL 문제 3문제**와 **추가 확인문제**를 직접 풀어보며 학습하는 과제입니다. 
 
 이번 주는 아래의 **SQL_ADVANCED_3rd_TIL**에 나열된 주제를 중심으로 개념을 학습하고, 주차별 **학습 목표**에 맞게 정리해주세요. 정리한 내용은 GitHub에 업로드한 후, **스프레드시트의 'SQL' 시트에 링크를 제출**해주세요. 
 
@@ -63,6 +63,25 @@
 
 ## 문제 
 
+https://leetcode.com/problems/rank-scores/
+
+> LeetCode 178. Rank Scores
+>
+> 학습 포인트 : DENSE_RANK( )를 활용하여 점수별 순위 부여, 동점자 처리, 윈도우 함수 복습 
+
+https://school.programmers.co.kr/learn/courses/30/lessons/133027
+
+> 프로그래머스 : 주문량이 많은 아이스크림들 조회하기 (Lev 4)
+>
+> Hint
+>
+> - 문제 핵심은 '총 주문량 합산' 입니다. 
+>
+> - 두 테이블을 '세로로' 합쳐야합니다. 
+>   - 저희는 이 부분을 1주차에 `UNION ALL` 을 통해 방법을 배웠습니다. 
+> - 합쳐진 테이블에서 FLAVOR 별로 그룹화해 주문량을 합산하셍.
+> - 상위 3개를 추출 = 주문량 기준으로 내림차순하여 이번에 학습한 것을 사용해야 합니다. 
+
 
 
 
@@ -93,9 +112,35 @@
 
 ## 문제 1
 
-> **🧚만들어야함.**
+> **🧚미정이는 지역별로 가장 인기 있는 식당 2곳씩을 뽑기 위해 다음과 같은 UNION ALL 기반 쿼리를 작성했습니다.**
 
+~~~sql
+(
+  SELECT region, restaurant_name, review_count
+  FROM Restaurants
+  WHERE region = '서울'
+  ORDER BY review_count DESC
+  LIMIT 2
+)
+UNION ALL
+(
+  SELECT region, restaurant_name, review_count
+  FROM Restaurants
+  WHERE region = '부산'
+  ORDER BY review_count DESC
+  LIMIT 2
+)
+UNION ALL
+(
+  SELECT region, restaurant_name, review_count
+  FROM Restaurants
+  WHERE region = '대구'
+  ORDER BY review_count DESC
+  LIMIT 2
+);
+~~~
 
+> **쿼리는 잘 작동하긴 하지만, 지역을 더 추가해달라는 권택이의 부탁으로 UNION ALL 블록을 계속 추가하게 되어 관리가 어려울 것 같아서 힘들어하고 있었습니다. 여러분들은 이 쿼리를 윈도우 함수로 변경하여 더 쉽게 리팩토링을 하려고 합니다. 미정이를 도와서 UNION ALL 없이 RANK( ) 또는 ROW_NUMBER( ) 윈도우 함수를 사용해, 각 지역별로 리뷰 수가 가장 많은 상위 2개 식당을 추출하는 쿼리를 작성해보세요.**
 
 
 
