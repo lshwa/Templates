@@ -2,7 +2,7 @@
 
 ## Week 1 :집합 연산자 & 그룹 함수
 
-📌**SQL_ADVANCED 정규과제**는 매주 정해진 주제에 따라 **MySQL 공식 문서 또는 한글 블로그 자료를 참고해 개념을 정리한 후, 프로그래머스 SQL 3문제**와 **추가 확인문제**를 직접 풀어보며 학습하는 과제입니다. 
+📌**SQL_ADVANCED 정규과제**는 매주 정해진 주제에 따라 **MySQL 공식 문서 또는 한글 블로그 자료를 참고해 개념을 정리한 후, 프로그래머스/ Solvesql / LeetCode에서 SQL 3문제**와 **추가 확인문제**를 직접 풀어보며 학습하는 과제입니다. 
 
 이번 주는 아래의 **SQL_ADVANCED_1st_TIL**에 나열된 주제를 중심으로 개념을 학습하고, 주차별 **학습 목표**에 맞게 정리해주세요. 정리한 내용은 GitHub에 업로드한 후, **스프레드시트의 'SQL' 시트에 링크를 제출**해주세요. 
 
@@ -78,6 +78,18 @@
 
 
 ## 문제
+
+https://leetcode.com/problems/customers-who-never-order/
+
+> LeetCode 183. Customers Who never Order
+>
+> 학습 포인트 : 주문 내역이 없는 고객을 찾기 위한 패턴 익히기  
+
+https://leetcode.com/problems/department-highest-salary/description/
+
+> LeetCode 184. Department Highest Salary
+>
+> 학습 포인트 : 부서별 최고 연봉자 추출을 위한 **그룹별 정렬 / 필터링** 방식 이해하기
 
 
 
