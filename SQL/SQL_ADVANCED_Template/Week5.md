@@ -14,12 +14,21 @@
 
 ## **SQL_ADVANCED_5th_TIL**
 
-| **주제** | **문서명**                                 | **설명**                                                     | **링크**                                                     |
-| -------- | ------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| PIVOT    | *MySQL 공식 문서에서는 직접 지원하지 않음* | CASE WHEN이나 GROUP_CONCAT을 사용한 수동 피벗 처리 학습 필요 | [(예시 블로그) CASE로 피벗 구현하기](https://jojoldu.tistory.com/514) |
-| UNPIVOT  | *MySQL 공식 문서에서는 직접 지원하지 않음* | UNION ALL 또는 JSON_TABLE, CROSS JOIN 등을 사용해 수동 UNPIVOT 구현 | [(참고) UNPIVOT 예제 블로그](https://velog.io/@tjdud0123/MySQL-UNPIVOT) |
+- MySQL 공식문서에는 `PIVOT / UNPIVOT`에 대한 **전용 문법을 제공하지 않고 있습니다.** 따라서 이번 주차에서는 PIVOT / UNPIVOT에 대한 개념을 이해하고, 이를 `CASE WHEN + GROUP BY` 또는 `UNION ALL` 등의 조합으로 수동 구현할 수 있는 방법을 학습하면 됩니다. 
 
-- PIVOT/UNPIVOT은 MySQL에서는 직접 문법을 제공하지 않기 때문에, CASE WHEN, GROUP BY, UNION, JOIN 등을 조합하여 수작업으로 구현합니다. 다양한 예제를 통해 전개 방식을 익히는 것이 중요합니다.
+참고할 자료 
+
+1. **PIVOT / UNPIVOT 개념 학습 Blog**
+
+https://m.blog.naver.com/regenesis90/222205833002
+
+https://blog.naver.com/regenesis90/222205964866
+
+2. **MySQL 로 PIVOT 구현하기**
+
+https://shxrecord.tistory.com/181
+
+
 
 
 
@@ -38,6 +47,14 @@
 
 
 ## 문제
+
+https://leetcode.com/problems/reformat-department-table/description/
+
+> LeetCode. Reformat Department Table
+>
+> 학습 포인트 : MySQL 에서는 PIVOT을 쉽게 구할 수 있는 방법이 없다. 
+>
+> - 수동으로 구하기 : CASE WHEN + 집계함수 / GROUP BY + 조건 분기 사용
 
 
 
@@ -96,6 +113,40 @@
 ```
 여기에 SQL 쿼리를 작성해주세요!
 ```
+
+
+
+### 문제 2
+
+> **🧚예린이는 지점별로 월별 매출을 한 눈에 보기 위해, 아래와 같이 매출 데이터가 저장된 데이터를 가공하려고 합니다.**
+
+| **branch** | **month** | **sales** |
+| ---------- | --------- | --------- |
+| A          | Jan       | 100       |
+| A          | Feb       | 120       |
+| A          | Mar       | 130       |
+| B          | Jan       | 90        |
+| B          | Feb       | 110       |
+| B          | Mar       | 140       |
+
+> **이 데이터를 아래와 같이 월별 매출 컬럼이 각각 존재하도록 PIVOT 형태로 바꾸고 싶습니다.MySQL에서는 PIVOT 문법이 없기 때문에, CASE WHEN, GROUP BY, MAX() 또는 SUM() 등을 이용해 수동으로 구현해보세요.**
+
+- 원하는 결과 
+
+| **branch** | **Jan_sales** | **Feb_sales** | **Mar_sales** |
+| ---------- | ------------- | ------------- | ------------- |
+| A          | 100           | 120           | 130           |
+| B          | 90            | 110           | 140           |
+
+
+
+~~~
+여기에 SQL 쿼리를 작성해주세요!
+~~~
+
+
+
+
 
 
 
