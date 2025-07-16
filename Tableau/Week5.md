@@ -120,14 +120,17 @@
 
 
 
-
 # 확인 문제
 
 오늘은 별도의 문제가 없습니다. 
 
-<!-- 이미지 4개 연달아 첨부 -->
+![alt text](images/Week5-1.png)
 
+![alt text](images/Week5-2.png)
 
+![alt text](images/Week5-3.png)
+
+![alt text](images/Week5-4.png)
 
 여러 대시보드를 참고하시어, superstore 데이터를 사용해 나만의 대시보드를 제작해주세요.
 
