@@ -1,6 +1,6 @@
 # SQL_MASTER 0주차 정규 과제 
 
-## Week 0 : DDL 실습 및 자료형 타입 
+## Week 0 : 데이터베이스와 SQL 
 
 📌**SQL_MASTER 정규과제**는 매주 MySQL Workbench 툴을 활용하여 **직접 데이터베이스를 설계하고 실습하는 프로젝트 기반 과제**입니다. 
 
