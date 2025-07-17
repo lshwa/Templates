@@ -1,6 +1,6 @@
 # SQL_MASTER 4주차 정규 과제 
 
-## Week 3 : 테이블과 뷰
+## Week 4 : 인덱스
 
 📌**SQL_MASTER 정규과제**는 매주 MySQL Workbench 툴을 활용하여 **직접 데이터베이스를 설계하고 실습하는 프로젝트 기반 과제**입니다. 
 
